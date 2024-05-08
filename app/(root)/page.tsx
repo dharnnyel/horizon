@@ -8,7 +8,7 @@ const Home: React.FC<HomeProps> = props => {
 	const loggedIn = { firstName: 'Daniel' };
 
 	return (
-		<div className='home'>
+		<section className='home'>
 			<div className='home-content'>
 				<header className='home-header'>
 					<Header
@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = props => {
 					/>
 				</header>
 			</div>
-		</div>
+		</section>
 	);
 };
 

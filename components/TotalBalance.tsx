@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import React from 'react';
+import AnimatedCounter from './AnimatedCounter';
+import DoughnutChart from './DoughnutChart';
 
 const TotalBalance: React.FC<TotalBalanceProps> = ({
 	accounts = [],
@@ -9,7 +13,9 @@ const TotalBalance: React.FC<TotalBalanceProps> = ({
 	return (
 		<section className='total-balance'>
 			{/* TODO: Create doughnut chart */}
-			<div className=''>{/* <DoughnutChart /> */}</div>
+			<div className='border-2 border-red-500 max-w-52'>
+				<DoughnutChart accounts={accounts} />
+			</div>
 
 			<div className='flex justify-between border w-full'>
 				<div className='flex flex-col gap-6'>
@@ -21,7 +27,9 @@ const TotalBalance: React.FC<TotalBalanceProps> = ({
 							Total Current Balance:
 						</span>
 						<span className='text-24 lg:text-30 font-semibold flex-1'>
-							{totalCurrentBalance}
+							<AnimatedCounter
+								amount={totalCurrentBalance}
+							/>
 						</span>
 					</p>
 				</div>
