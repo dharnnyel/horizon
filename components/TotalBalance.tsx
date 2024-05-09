@@ -13,16 +13,16 @@ const TotalBalance: React.FC<TotalBalanceProps> = ({
 	return (
 		<section className='total-balance'>
 			{/* TODO: Create doughnut chart */}
-			<div className='border-2 border-red-500 max-w-52'>
+			<div className='border-2 border-red-500 w-40'>
 				<DoughnutChart accounts={accounts} />
 			</div>
 
-			<div className='flex justify-between border w-full'>
+			<div className='flex justify-between h-fit border w-full'>
 				<div className='flex flex-col gap-6'>
 					<h2 className='font-semibold text-base leading-6'>
 						Bank Accounts: {totalBanks}
 					</h2>
-					<p className='flex flex-col'>
+					<p className='flex flex-col gap-3'>
 						<span className='text-gray-600  text-14 font-medium'>
 							Total Current Balance:
 						</span>
