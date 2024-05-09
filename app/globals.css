@@ -377,10 +377,10 @@
 	}
 
 	.sidebar-link {
-		@apply flex gap-3 items-center py-1 md:p-3 2xl:p-4 rounded-lg justify-center xl:justify-start;
+		@apply flex gap-2 items-center py-1 md:py-3 md:px-1 2xl:p-4 rounded-lg justify-center xl:justify-start;
 	}
 
 	.sidebar-label {
-		@apply text-16 font-semibold max-xl:hidden;
+		@apply text-16 w-full border border-red-500 font-semibold max-xl:hidden;
 	}
 }

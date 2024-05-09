@@ -22,10 +22,15 @@ const SideBar: React.FC<SideBarProps> = ({ user }) => {
 					<span className='font-bold text-[30px] font-ibm-plex-serif max-xl:hidden '>
 						Horizon
 					</span>
-        </Link>
-        
-        <DesktopNav links={sidebarLinks} />
+				</Link>
+
+				<div className='w-full'>
+					<DesktopNav links={sidebarLinks} />
+				</div>
+				{/* TODO: Render user data */}
 			</nav>
+
+			{/* TODO: Create footer content */}
 		</section>
 	);
 };

@@ -12,21 +12,20 @@ const TotalBalance: React.FC<TotalBalanceProps> = ({
 }) => {
 	return (
 		<section className='total-balance'>
-			{/* TODO: Create doughnut chart */}
-			<div className='border-2 border-red-500 w-40'>
+			<div className='w-28 md:w-40 '>
 				<DoughnutChart accounts={accounts} />
 			</div>
 
-			<div className='flex justify-between h-fit border w-full'>
+			<div className='flex justify-between h-fit w-full'>
 				<div className='flex flex-col gap-6'>
-					<h2 className='font-semibold text-base leading-6'>
+					<h2 className='font-semibold text-xs sm:text-base leading-6'>
 						Bank Accounts: {totalBanks}
 					</h2>
 					<p className='flex flex-col gap-3'>
 						<span className='text-gray-600  text-14 font-medium'>
 							Total Current Balance:
 						</span>
-						<span className='text-24 lg:text-30 font-semibold flex-1'>
+						<span className=' text-lg md:text-24 lg:text-30 font-semibold flex-1'>
 							<AnimatedCounter
 								amount={totalCurrentBalance}
 							/>
@@ -35,7 +34,7 @@ const TotalBalance: React.FC<TotalBalanceProps> = ({
 				</div>
 				<Link
 					href='/'
-					className='border self-start content-end hidden sm:block text-bankGradient'
+					className='self-start content-end hidden sm:block text-bankGradient'
 				>
 					+ Add bank
 				</Link>
