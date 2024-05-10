@@ -41,6 +41,7 @@ const Home: React.FC<HomeProps> = props => {
 				</header>
 
 				{/* TODO: Recent Transactions */}
+				RECENT TRANSACTIONS
 			</div>
 
 			<RightSideBar

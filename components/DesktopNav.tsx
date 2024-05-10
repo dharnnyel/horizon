@@ -19,7 +19,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
 }) => {
 	const pathname = usePathname();
 	return (
-		<div>
+		<div className='flex flex-col gap-6'>
 			{links.map(link => {
 				const isActive =
 					pathname === link.route ||
@@ -33,7 +33,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
 							'bg-bank-gradient': isActive,
 						})}
 					>
-						<div className='relative size-6'>
+						<div className='relative size-6 max-xl:size-8'>
 							<Image
 								src={link.imgURL}
 								alt={link.label}

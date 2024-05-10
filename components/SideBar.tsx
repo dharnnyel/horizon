@@ -7,7 +7,7 @@ import { sidebarLinks } from '@/constants';
 const SideBar: React.FC<SideBarProps> = ({ user }) => {
 	return (
 		<section className='sidebar'>
-			<nav className='flex flex-col gap-10'>
+			<nav className='flex flex-col gap-10 max-xl:items-center'>
 				<Link
 					href='/'
 					className='flex text-black-1 items-center gap-1 cursor-pointer'
@@ -24,7 +24,7 @@ const SideBar: React.FC<SideBarProps> = ({ user }) => {
 					</span>
 				</Link>
 
-				<div className='w-full'>
+				<div className='w-fit'>
 					<DesktopNav links={sidebarLinks} />
 				</div>
 				{/* TODO: Render user data */}
