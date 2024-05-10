@@ -1,6 +1,16 @@
 import MobileNav from '@/components/MobileNav';
 import SideBar from '@/components/SideBar';
+import { Metadata } from 'next';
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+	title: 'Horizon',
+	description:
+		'Horizon is a modern banking platform for everyone',
+	icons: {
+		icon: '/icons/logo.svg',
+	},
+};
 
 export default function RootLayout({
 	children,

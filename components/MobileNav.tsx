@@ -36,7 +36,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 							className='cursor-pointer'
 						/>
 					</SheetTrigger>
-					<SheetContent className='backdrop-blur-md backdrop-filter w-96'>
+					<SheetContent className='backdrop-blur-md backdrop-filter w-80 '>
 						<Link
 							href='/'
 							className='flex text-black-1 items-center gap-2 cursor-pointer'
@@ -73,7 +73,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 														'bg-bank-gradient': isActive,
 													})}
 												>
-													<div className='relative size-6'>
+													<div className='relative size-6 text-black-3'>
 														<Image
 															src={link.imgURL}
 															alt={link.label}
@@ -86,7 +86,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 													</div>
 													<p
 														className={cn(
-															'text-xl font-medium text-gray-900',
+															'text-xl font-medium text-black-3',
 															{
 																'text-white': isActive,
 															}
