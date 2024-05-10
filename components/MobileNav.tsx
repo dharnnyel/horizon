@@ -7,9 +7,6 @@ import {
 	Sheet,
 	SheetClose,
 	SheetContent,
-	SheetDescription,
-	SheetHeader,
-	SheetTitle,
 	SheetTrigger,
 } from '@/components/ui/sheet';
 import Link from 'next/link';
@@ -39,7 +36,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 							className='cursor-pointer'
 						/>
 					</SheetTrigger>
-					<SheetContent className='backdrop-blur backdrop-filter w-96'>
+					<SheetContent className='backdrop-blur-md backdrop-filter w-96'>
 						<Link
 							href='/'
 							className='flex text-black-1 items-center gap-2 cursor-pointer'
@@ -89,7 +86,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 													</div>
 													<p
 														className={cn(
-															'text-xl font-medium text-black-2',
+															'text-xl font-medium text-gray-900',
 															{
 																'text-white': isActive,
 															}
