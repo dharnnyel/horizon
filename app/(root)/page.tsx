@@ -8,7 +8,7 @@ type HomeProps = {};
 const Home: React.FC<HomeProps> = props => {
 	const loggedIn = {
 		$id: 'abc123',
-		email: 'example@example.com',
+		email: 'ubahchuks91@gmail.com',
 		userId: 'user123',
 		dwollaCustomerUrl: 'https://www.dwolla.com/user123',
 		dwollaCustomerId: 'dwolla123',
@@ -47,7 +47,7 @@ const Home: React.FC<HomeProps> = props => {
 			<RightSideBar
 				user={loggedIn}
 				transactions={[]}
-				banks={[]}
+				banks={[{}, {}]}
 			/>
 		</section>
 	);
