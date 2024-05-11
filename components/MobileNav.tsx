@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { sidebarLinks } from '@/constants';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import Logo from './Logo';
 
 const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 	const pathname = usePathname();
@@ -37,21 +38,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 						/>
 					</SheetTrigger>
 					<SheetContent className='backdrop-blur-md backdrop-filter w-80 '>
-						<Link
-							href='/'
-							className='flex text-black-1 items-center gap-2 cursor-pointer'
-						>
-							<Image
-								src='/icons/logo.svg'
-								width={34}
-								height={34}
-								alt='logo'
-								className='size-[30px]'
-							/>
-							<span className='font-bold text-[25px] font-ibm-plex-serif'>
-								Horizon
-							</span>
-						</Link>
+						<Logo to='/' imgStyles='size-[30px]' />
 
 						<div className='mobilenav-sheet'>
 							<SheetClose asChild>
@@ -64,14 +51,17 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 										return (
 											<SheetClose
 												asChild
-                        key={link.route}
+												key={link.route}
 											>
 												<Link
 													href={link.route}
 													key={link.label}
-													className={cn('mobilenav-sheet_close', {
-														'bg-bank-gradient': isActive,
-													})}
+													className={cn(
+														'mobilenav-sheet_close',
+														{
+															'bg-bank-gradient': isActive,
+														}
+													)}
 												>
 													<div className='relative size-6 text-black-3'>
 														<Image
@@ -97,13 +87,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 												</Link>
 											</SheetClose>
 										);
-                  })}
-                  
-                  {/* TODO: render user info */}
+									})}
+
+									{/* TODO: render user info */}
 								</nav>
 							</SheetClose>
 
-              {/* TODO: Create footer content */}
+							{/* TODO: Create footer content */}
 						</div>
 					</SheetContent>
 				</Sheet>

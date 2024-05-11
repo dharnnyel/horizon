@@ -28,7 +28,7 @@ const BankCard: React.FC<CreditCardProps & Props> = ({
 							</span>
 							<span className='text-sm'>●● / ●●</span>
 						</p>
-						<p className='text-base'>●●●● ●●●● ●●●● ●●●●</p>
+						<p className='text-base'>●●●● ●●●● ●●●● 1234</p>
 					</div>
 				</div>
 

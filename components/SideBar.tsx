@@ -3,26 +3,16 @@ import Link from 'next/link';
 import React from 'react';
 import DesktopNav from './DesktopNav';
 import { sidebarLinks } from '@/constants';
+import Logo from './Logo';
 
 const SideBar: React.FC<SideBarProps> = ({ user }) => {
 	return (
 		<section className='sidebar'>
 			<nav className='flex flex-col gap-10 max-xl:items-center'>
-				<Link
-					href='/'
-					className='flex text-black-1 items-center gap-1 cursor-pointer'
-				>
-					<Image
-						src='/icons/logo.svg'
-						width={34}
-						height={34}
-						alt='logo'
-						className='size-[50px] xl:size-[36px]'
-					/>
-					<span className='font-bold text-[30px] font-ibm-plex-serif max-xl:hidden '>
-						Horizon
-					</span>
-				</Link>
+				<Logo
+					textStyles='max-xl:hidden'
+					imgStyles='size-[50px] xl:size-[36px]'
+				/>
 
 				<div className='w-fit'>
 					<DesktopNav links={sidebarLinks} />
