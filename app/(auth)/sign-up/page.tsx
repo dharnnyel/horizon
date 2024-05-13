@@ -5,8 +5,8 @@ type SignUpProps = {};
 
 const SignUp: React.FC<SignUpProps> = props => {
 	return (
-		<section className='max-sm:px-6 w-full h-screen flex justify-center items-center'>
-			<AuthForm type='sign-in' />
+		<section className='max-sm:px-6 py-4 border-2 border-red-500 w-full flex justify-center items-center'>
+			<AuthForm type='sign-up' />
 		</section>
 	);
 };

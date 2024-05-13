@@ -21,7 +21,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({
 	return (
 		<main className='w-full min-h-screen flex font-inter justify-between'>
 			{children}
-			<div className='bg-sky-50 w-[85%] pl-8 h-screen flex justify-end items-center max-lg:hidden'>
+			<div className='bg-sky-50 w-[85%] pl-8 flex justify-end items-center max-lg:hidden'>
 				<div>
 					<Image
 						src='/icons/auth-image.svg'

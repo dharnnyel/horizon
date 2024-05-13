@@ -31,7 +31,7 @@ const FormControls: React.FC<FormControlsProps> = ({
 			control={control}
 			name={name}
 			render={({ field }) => (
-				<FormItem className='border border-red-500 mt-6 flex flex-col gap-1'>
+				<FormItem className='mt-3 flex flex-col gap-1'>
 					<>
 						<FormLabel>{label}</FormLabel>
 						<FormControl>
@@ -39,9 +39,10 @@ const FormControls: React.FC<FormControlsProps> = ({
 								type={inputType}
 								placeholder={placeholder}
 								{...field}
+								className='focus-visible:ring-offset-0 focus-visible:ring-0'
 							/>
 						</FormControl>
-						<FormMessage />
+						<FormMessage className='mt-2 text-12 text-red-500' />
 					</>
 				</FormItem>
 			)}
