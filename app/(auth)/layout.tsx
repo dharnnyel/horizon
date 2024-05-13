@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import React from 'react';
 
@@ -5,13 +6,22 @@ type AuthLayoutProps = {
 	children: React.ReactNode;
 };
 
+// export const metadata: Metadata = {
+// 	title: 'Horizon | ',
+// 	description:
+// 		'Horizon is a modern banking platform for everyone',
+// 	icons: {
+// 		icon: '/icons/logo.svg',
+// 	},
+// };
+
 const AuthLayout: React.FC<AuthLayoutProps> = ({
 	children,
 }) => {
 	return (
 		<main className='w-full min-h-screen flex font-inter justify-between'>
 			{children}
-			<div className='w-[85%] pl-8 h-screen flex justify-end items-center max-lg:hidden'>
+			<div className='bg-sky-50 w-[85%] pl-8 h-screen flex justify-end items-center max-lg:hidden'>
 				<div>
 					<Image
 						src='/icons/auth-image.svg'

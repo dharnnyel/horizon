@@ -1,13 +1,14 @@
-import React from 'react'
+import AuthForm from '@/components/AuthForm';
+import React from 'react';
 
-type SignInProps = {}
+type SignInProps = {};
 
-const SignIn: React.FC<SignInProps> = (props) => {
-  return (
-    <div className='border-2 border-green-500 w-full h-screen flex justify-center items-center'>
-      
-    </div>
-  )
-}
+const SignIn: React.FC<SignInProps> = props => {
+	return (
+		<section className='max-sm:px-6 w-full h-screen flex justify-center items-center border-4 border-red-500'>
+			<AuthForm type='sign-in' />
+		</section>
+	);
+};
 
-export default SignIn
+export default SignIn;

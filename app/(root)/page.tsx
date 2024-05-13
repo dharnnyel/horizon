@@ -47,7 +47,7 @@ const Home: React.FC<HomeProps> = props => {
 			<RightSideBar
 				user={loggedIn}
 				transactions={[]}
-				banks={[]}
+				banks={[{}, {}]}
 			/>
 		</section>
 	);
