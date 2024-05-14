@@ -1,28 +1,22 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import {
-	Form,
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
-} from './ui/form';
-
-import Logo from './Logo';
+import { Form } from './ui/form';
 import { Button } from './ui/button';
-import formSchema from '@/schemas/formSchemas';
 
-import FormComponent from './FormComponent';
 import { Loader2 } from 'lucide-react';
-import Link from 'next/link';
+
+import formSchema from '@/schemas/formSchemas';
+import Logo from './Logo';
+import FormComponent from './FormComponent';
+import { signIn, signUp } from '@/lib/actions/user.actions';
 
 type AuthFormProps = {
 	type: 'sign-in' | 'sign-up';
@@ -32,15 +26,42 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 	const [user, setUser] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const form = useForm<z.infer<typeof formSchema>>({
-		resolver: zodResolver(formSchema),
-		defaultValues: { email: '', password: '' },
+	const router = useRouter();
+
+	const schema = formSchema(type);
+
+	const form = useForm<z.infer<typeof schema>>({
+		resolver: zodResolver(schema),
+		defaultValues: {
+			email: '',
+			password: '',
+		},
 	});
 
-	const onSubmit = (values: z.infer<typeof formSchema>) => {
+	const onSubmit = async (data: z.infer<typeof schema>) => {
 		setIsLoading(true);
-		console.log(values);
-		setIsLoading(false);
+
+		try {
+			// TODO: Sign up with Appwrite and create Plaid Token
+
+			if (type === 'sign-up') {
+				const newUser = await signUp(data);
+				setUser(newUser);
+			}
+
+			if (type === 'sign-in') {
+				const response = await signIn({
+					email: data.email,
+					password: data.password,
+				});
+
+				if (response) router.push('/');
+			}
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 
 	return (
@@ -75,7 +96,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 						>
 							{type === 'sign-up' && (
 								<div className='flex flex-col '>
-									<div className='flex justify-between flex-col md:flex-row'>
+									<div className='flex gap-5 flex-col md:flex-row'>
 										<FormComponent
 											name='firstName'
 											label='First Name'
@@ -101,7 +122,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 											control={form.control}
 										/>
 									</div>
-									<div className='flex justify-between flex-col md:flex-row'>
+									<div className='flex gap-5 flex-col md:flex-row'>
 										<FormComponent
 											name='state'
 											label='State'
@@ -117,7 +138,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 											control={form.control}
 										/>
 									</div>
-									<div className='flex justify-between flex-col md:flex-row'>
+									<div className='flex gap-5 flex-col md:flex-row'>
 										<FormComponent
 											name='dateOfBirth'
 											label='Date of Birth'
