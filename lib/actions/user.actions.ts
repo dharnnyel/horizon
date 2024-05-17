@@ -1,16 +1,29 @@
 'use server';
 
+import { cookies } from 'next/headers';
+
 import { ID } from 'node-appwrite';
 import {
 	createAdminClient,
 	createSessionClient,
 } from '../server/appwrite';
 
-import { cookies } from 'next/headers';
 import { parseStringify } from '../utils';
 
-const signIn = async (data: LoginUser) => {
+const signIn = async (data: signInProps) => {
+	const { email, password } = data;
+
 	try {
+		const { account } = await createAdminClient();
+
+		const response =
+			await account.createEmailPasswordSession(
+				email,
+				password
+			);
+
+		return parseStringify(response);
+		
 	} catch (error) {
 		console.log('Error', error);
 	}
@@ -20,7 +33,6 @@ const signUp = async (userData: SignUpParams) => {
 	const { email, password, firstName, lastName } = userData;
 
 	try {
-		// TODO: Use Appwrite to create user account
 		const { account } = await createAdminClient();
 		const newUserAccount = await account.create(
 			ID.unique(),
@@ -53,7 +65,7 @@ const getLoggedInUser = async () => {
 		const { account } = await createSessionClient();
 		const user = await account.get();
 
-		return user;
+		return parseStringify(user);
 	} catch (error) {
 		return null;
 	}

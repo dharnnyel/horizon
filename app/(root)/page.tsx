@@ -1,26 +1,13 @@
 import Header from '@/components/Header';
 import RightSideBar from '@/components/RightSideBar';
 import TotalBalance from '@/components/TotalBalance';
+import { getLoggedInUser } from '@/lib/actions/user.actions';
 import React from 'react';
 
 type HomeProps = {};
 
-const Home: React.FC<HomeProps> = props => {
-	const loggedIn = {
-		$id: 'abc123',
-		email: 'ubahchuks91@gmail.com',
-		userId: 'user123',
-		dwollaCustomerUrl: 'https://www.dwolla.com/user123',
-		dwollaCustomerId: 'dwolla123',
-		address1: '123 Street',
-		city: 'Cityville',
-		state: 'State',
-		postalCode: '12345',
-		dateOfBirth: '1990-01-01',
-		ssn: '123-45-6789',
-		firstName: 'Daniel',
-		lastName: 'Ubah',
-	};
+const Home: React.FC<HomeProps> = async props => {
+	const loggedInUser = await getLoggedInUser();
 
 	return (
 		<section className='home'>
@@ -29,7 +16,7 @@ const Home: React.FC<HomeProps> = props => {
 					<Header
 						type='greeting'
 						title='Welcome'
-						user={loggedIn.firstName || 'Guest'}
+						user={loggedInUser?.name || 'Guest'}
 						subtext='Access and manage your accounts and transactions efficiently.'
 					/>
 
@@ -39,13 +26,12 @@ const Home: React.FC<HomeProps> = props => {
 						totalCurrentBalance={1250.35}
 					/>
 				</header>
-
 				{/* TODO: Recent Transactions */}
 				RECENT TRANSACTIONS
 			</div>
 
 			<RightSideBar
-				user={loggedIn}
+				user={loggedInUser}
 				transactions={[]}
 				banks={[{}, {}]}
 			/>

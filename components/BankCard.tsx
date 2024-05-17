@@ -20,7 +20,7 @@ const BankCard: React.FC<CreditCardProps & Props> = ({
 				className='flex justify-evenly bg-bank-gradient h-48 rounded-3xl border border-white shadow-creditCard text-white'
 			>
 				<div className='rounded-l-[25px] w-full flex flex-col justify-between bg-gray-700 bg-bank-gradient h-full py-3 pl-5 pr-8'>
-					<h2 className='font-semibold'>{userName}</h2>
+					<h2 className='font-semibold text-xl'>Horizon</h2>
 					<div className='flex flex-col gap-1'>
 						<p className='flex justify-between'>
 							<span className='text-sm'>

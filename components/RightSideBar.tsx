@@ -15,13 +15,13 @@ const RightSideBar: React.FC<RightSidebarProps> = ({
 				<div className='profile-banner' />
 				<div className='relative'>
 					<div className='absolute bg-gray-100 shadow-profile border-4 border-white left-5 -top-8 w-24 h-24 rounded-full flex items-center justify-center'>
-						<span className='text-5xl font-bold text-blue-500'>{`${user.firstName[0]}${user.lastName[0]}`}</span>
+						<span className='text-5xl font-bold text-blue-500'>{`${user?.name[0]}`}</span>
 					</div>
 
 					<div className='pt-24 pl-7 gap-1 flex flex-col'>
-						<h2 className='text-2xl font-semibold'>{`${user.firstName} ${user.lastName}`}</h2>
+						<h2 className='text-2xl font-semibold'>{`${user?.name}`}</h2>
 						<p className='text-base font-light text-gray-600'>
-							{user.email}
+							{user?.email}
 						</p>
 					</div>
 				</div>
@@ -52,7 +52,7 @@ const RightSideBar: React.FC<RightSidebarProps> = ({
 							<BankCard
 								key={banks[0].$id}
 								account={banks[0]}
-								userName={`${user.firstName} ${user.lastName}`}
+								userName={`${user?.name}`}
                 showBalance={false}
                 card={0}
 							/>
@@ -62,7 +62,7 @@ const RightSideBar: React.FC<RightSidebarProps> = ({
 								<BankCard
 									key={banks[0].$id}
 									account={banks[1]}
-									userName={`${user.firstName} ${user.lastName}`}
+									userName={`${user?.name}`}
                   showBalance={false}
                   card={1}
 								/>
