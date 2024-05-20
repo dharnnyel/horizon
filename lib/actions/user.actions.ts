@@ -23,7 +23,6 @@ const signIn = async (data: signInProps) => {
 			);
 
 		return parseStringify(response);
-		
 	} catch (error) {
 		console.log('Error', error);
 	}
@@ -71,4 +70,16 @@ const getLoggedInUser = async () => {
 	}
 };
 
-export { signIn, signUp, getLoggedInUser };
+const logoutAccount = async () => {
+	try {
+		const { account } = await createSessionClient();
+
+		cookies().delete('appwrite-session');
+
+		await account.deleteSession('current');
+	} catch (error) {
+		return null;
+	}
+};
+
+export { signIn, signUp, getLoggedInUser, logoutAccount };

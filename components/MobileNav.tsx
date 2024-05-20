@@ -14,6 +14,7 @@ import { sidebarLinks } from '@/constants';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import Logo from './Logo';
+import Footer from './Footer';
 
 const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 	const pathname = usePathname();
@@ -37,8 +38,11 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 							className='cursor-pointer'
 						/>
 					</SheetTrigger>
-					<SheetContent className='backdrop-blur-md backdrop-filter w-80 '>
-						<Logo to='/' imgStyles='size-[30px]' />
+					<SheetContent className='backdrop-blur-sm backdrop-filter w-80 border-y border-l border-l-gray-300 border-y-gray-300 md:hidden'>
+						<Logo
+							to='/'
+							imgStyles='size-[30px]'
+						/>
 
 						<div className='mobilenav-sheet'>
 							<SheetClose asChild>
@@ -94,6 +98,10 @@ const MobileNav: React.FC<MobileNavProps> = ({ user }) => {
 							</SheetClose>
 
 							{/* TODO: Create footer content */}
+							<Footer
+								user={user}
+								type='mobile'
+							/>
 						</div>
 					</SheetContent>
 				</Sheet>

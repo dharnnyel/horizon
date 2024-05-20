@@ -1,9 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 import DesktopNav from './DesktopNav';
 import { sidebarLinks } from '@/constants';
 import Logo from './Logo';
+import Footer from './Footer';
 
 const SideBar: React.FC<SideBarProps> = ({ user }) => {
 	return (
@@ -21,6 +20,10 @@ const SideBar: React.FC<SideBarProps> = ({ user }) => {
 			</nav>
 
 			{/* TODO: Create footer content */}
+			<Footer
+				user={user}
+				type='desktop'
+			/>
 		</section>
 	);
 };
