@@ -10,9 +10,7 @@ import {
 
 import { parseStringify } from '../utils';
 
-const signIn = async (data: signInProps) => {
-	const { email, password } = data;
-
+const signIn = async ({ email, password }: signInProps) => {
 	try {
 		const { account } = await createAdminClient();
 
@@ -64,6 +62,7 @@ const getLoggedInUser = async () => {
 		const { account } = await createSessionClient();
 		const user = await account.get();
 
+		console.log(user);
 		return parseStringify(user);
 	} catch (error) {
 		return null;

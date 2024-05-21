@@ -215,7 +215,7 @@ declare interface TotalBalanceProps {
 
 declare interface FooterProps {
 	user: User;
-	type: 'mobile' | 'desktop';
+	type?: 'mobile' | 'desktop';
 }
 
 declare interface RightSidebarProps {

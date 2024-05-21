@@ -22,7 +22,6 @@ const SideBar: React.FC<SideBarProps> = ({ user }) => {
 			{/* TODO: Create footer content */}
 			<Footer
 				user={user}
-				type='desktop'
 			/>
 		</section>
 	);

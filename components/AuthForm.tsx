@@ -55,6 +55,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 					password: data.password,
 				});
 
+				console.log(response);
 				if (response) router.push('/');
 			}
 		} catch (error) {
@@ -65,7 +66,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
 	};
 
 	return (
-		<div className='bg-gray-500 shadow-2xl backdrop-filter backdrop-blur-lg bg-opacity-0 border-2 border-black-1 rounded-xl w-[450px] md:w-[520px] py-3 px-4'>
+		<div className='bg-gray-500 shadow-2xl backdrop-filter backdrop-blur-lg bg-opacity-0 border-2 border-gray-100 rounded-xl w-[450px] md:w-[520px] py-3 px-4'>
 			<header className='flex flex-col gap-5'>
 				<Logo />
 				<div className='flex flex-col gap-2 md:gap-3'>
